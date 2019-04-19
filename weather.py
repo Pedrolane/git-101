@@ -2,7 +2,7 @@ import requests
 
 BASE_URL = "https://www.metaweather.com"
 
-def get_city_weoid(city):
+def city_woeid(city):
     url = f"{BASE_URL}/api/location/search/?query={city}"
     response = requests.get(url)
     data = response.json()
@@ -10,7 +10,7 @@ def get_city_weoid(city):
     return woeid
 
 def get_weather(city):
-    url = f"{BASE_URL}/api/location/{get_city_weoid(city)}/"
+    url = f"{BASE_URL}/api/location/{city_woeid(city)}/"
     response = requests.get(url)
     data = response.json()
     return data
