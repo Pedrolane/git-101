@@ -14,10 +14,9 @@ woeid = data[0]['woeid']
 url = f"{BASE_URL}/api/location/{woeid}/"
 response = requests.get(url)
 data = response.json()
-print(data)
 
 for day in data["consolidated_weather"]:
     desc = day["weather_state_name"]
     date = day["applicable_date"]
     temp = day["max_temp"]
-    print(f"{date}: {desc} ({temp} °C)")
+    print(f"{date}: {desc} ({round(temp, 1)} °C)")
