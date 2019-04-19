@@ -11,4 +11,7 @@ response = requests.get(url)
 data = response.json()
 woeid = data[0]['woeid']
 
-print(woeid)
+url = f"{BASE_URL}/api/location/{woeid}/"
+response = requests.get(url)
+data = response.json()
+print(data)
